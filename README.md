@@ -6,29 +6,28 @@ git clone https://github.com/Maxwellwk/DailyfreshProject.git
 ##### 2.进入自己创建的python3.7虚拟环境（传送门：如何创建虚拟环境https://blog.csdn.net/qq_26870933/article/details/81502484），执行pip install -r requirements.txt
 pip install -r requirements.txt
 ##### 3.配置mysql主从同步（传送门：https://blog.csdn.net/qq_26870933/article/details/85041432），并更改setting中DATABASES里面的HOST（本机），安装mysql并创建对应的数据库。
-...
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '10.*.*.101',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'NAME': 'dailyfresh'
-    },
-    'slave': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '10.*.*.102',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'NAME': 'dailyfresh'
-    }
-}
-
-# 读写分离路由器
-DATABASE_ROUTERS = ["utils.db_router.MasterSlaveDBRouter"]
-...
+...<br>
+DATABASES = {<br>
+    'default': {<br>
+        'ENGINE': 'django.db.backends.mysql',<br>
+        'HOST': '10.*.*.101',<br>
+        'PORT': 3306,<br>
+        'USER': 'root',<br>
+        'PASSWORD': 'root',<br>
+        'NAME': 'dailyfresh'<br>
+    },<br>
+    'slave': {<br>
+        'ENGINE': 'django.db.backends.mysql',<br>
+        'HOST': '10.*.*.102',<br>
+        'PORT': 3306,<br>
+        'USER': 'root',<br>
+        'PASSWORD': 'root',<br>
+        'NAME': 'dailyfresh'<br>
+    }<br>
+}<br>
+#读写分离路由器<br>
+DATABASE_ROUTERS = ["utils.db_router.MasterSlaveDBRouter"]<br>
+...<br>
 ##### 4.在settings.py中将邮箱更改为你自己的邮箱地址
 #Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
